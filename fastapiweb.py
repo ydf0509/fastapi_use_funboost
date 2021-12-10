@@ -5,7 +5,7 @@ from funcs import add, sub
 import nb_log
 from function_scheduling_distributed_framework import AsyncResult, HasNotAsyncResult
 
-nb_log.get_logger('fastapi')
+logger = nb_log.get_logger('fastapi_demo')
 
 app = FastAPI()
 
@@ -29,6 +29,7 @@ def add_api(x: int, y: int):
     """接口迅速返回taskid，前端页面调用下面的接口传入taskid获取结果
     """
     async_result = add.push(x, y)
+    logger.debug(async_result.task_id)
     model = TaskStatusModel(task_id=async_result.task_id)
     return model
 
@@ -41,6 +42,7 @@ def get_add_result_by_ajax(taskid: str):
     try:
         return AsyncResult(task_id=taskid, timeout=1).get()
     except HasNotAsyncResult:
+        logger.warning(f"taskid [ {taskid} ]还没执行完成或者taskid错误")
         return 'empty'
 
 
