@@ -42,7 +42,7 @@ def get_add_result_by_ajax(taskid: str):
     try:
         return AsyncResult(task_id=taskid, timeout=1).get()
     except HasNotAsyncResult:
-        logger.warning(f"taskid [ {taskid} ]还没执行完成或者taskid错误")
+        logger.warning(f"taskid [ {taskid} ] 还没执行完成或者taskid错误")
         return 'empty'
 
 
@@ -53,7 +53,7 @@ http://127.0.0.1:8080/sub/?x=1&y=2
 
 @app.get("/sub/")
 def sub_api(x: int, y: int):
-    """接口直接阻塞直到任务执行完成"""
+    """接口直接最大阻塞120s直到任务执行完成"""
     async_result = sub.push(x, y)
     async_result.set_timeout(120)
     result = async_result.get()
