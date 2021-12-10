@@ -2,7 +2,10 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from funcs import add, sub
+import nb_log
 from function_scheduling_distributed_framework import AsyncResult, HasNotAsyncResult
+
+nb_log.get_logger('fastapi')
 
 app = FastAPI()
 
@@ -36,7 +39,7 @@ def get_add_result_by_ajax(taskid: str):
     如果前端不需要关注结果，不需要调用此接口
     """
     try:
-        return AsyncResult(task_id=taskid, timeout=0.1).get()
+        return AsyncResult(task_id=taskid, timeout=1).get()
     except HasNotAsyncResult:
         return 'empty'
 
