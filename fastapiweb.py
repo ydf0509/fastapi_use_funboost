@@ -23,7 +23,8 @@ http://127.0.0.1:8080/add/?x=1&y=2
 
 @app.get("/add/")
 def add_api(x: int, y: int):
-    """接口迅速返回taskid，前端页面调用下面的接口传入taskid获取结果"""
+    """接口迅速返回taskid，前端页面调用下面的接口传入taskid获取结果
+    """
     async_result = add.push(x, y)
     model = TaskStatusModel(task_id=async_result.task_id)
     return model
@@ -31,7 +32,9 @@ def add_api(x: int, y: int):
 
 @app.get("/taskid/{taskid:str}")
 def get_add_result_by_ajax(taskid: str):
-    """前端每隔3秒轮训ajax，个人建议可以考虑尝试函数里面得到结果后发布到mqtt topic，前端订阅这个topic，mqtt比ajax和websocket都好用"""
+    """前端每隔3秒轮训ajax，个人建议可以考虑尝试函数里面得到结果后发布到mqtt topic，前端订阅这个topic，mqtt比ajax和websocket都好用
+    如果前端不需要关注结果，不需要调用此接口
+    """
     try:
         return AsyncResult(task_id=taskid, timeout=0.1).get()
     except HasNotAsyncResult:
