@@ -29,7 +29,7 @@ def add_api(x: int, y: int):
     """接口迅速返回taskid，前端页面调用下面的接口传入taskid获取结果
     """
     async_result = add.push(x, y)
-    logger.debug(async_result.task_id)
+    logger.debug(f'返回taskid给前端： [{async_result.task_id}]')
     model = TaskStatusModel(task_id=async_result.task_id)
     return model
 

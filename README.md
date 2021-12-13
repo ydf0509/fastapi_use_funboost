@@ -10,3 +10,22 @@
 第二个是启动 run_consume.py或funcs.py,此脚本启动消费消息队列中的任务。
 ```
 
+## 截图
+
+### web接口发布任务截图
+
+[![oLIui6.png](https://s4.ax1x.com/2021/12/13/oLIui6.png)](https://imgtu.com/i/oLIui6)
+
+
+### 浏览器请求add接口截图
+
+[![oLI0SS.png](https://s4.ax1x.com/2021/12/13/oLI0SS.png)](https://imgtu.com/i/oLI0SS)
+
+### 浏览器请求taskid接口获取结果截图
+
+[![oLI8Ld.png](https://s4.ax1x.com/2021/12/13/oLI8Ld.png)](https://imgtu.com/i/oLI8Ld)
+
+
+### 后台消费截图
+
+[![oLIRYV.png](https://s4.ax1x.com/2021/12/13/oLIRYV.png)](https://imgtu.com/i/oLIRYV)
