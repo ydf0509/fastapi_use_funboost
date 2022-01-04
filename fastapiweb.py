@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from funcs import add, sub
 import nb_log
-from function_scheduling_distributed_framework import AsyncResult, HasNotAsyncResult
+from funboost import AsyncResult, HasNotAsyncResult
 
 logger = nb_log.get_logger('fastapi_demo')
 

@@ -1,5 +1,5 @@
 ﻿import time
-from function_scheduling_distributed_framework import task_deco, BrokerEnum
+from funboost import task_deco, BrokerEnum
 
 """
 如果发布者要获取消费结果一定要设置is_using_rpc_mode=True

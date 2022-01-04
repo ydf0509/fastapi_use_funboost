@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from function_scheduling_distributed_framework.constant import BrokerEnum
+from funboost.constant import BrokerEnum
 
 '''
 你项目根目录下自动生成的 distributed_frame_config.py 文件中修改配置，会被自动读取到。
