@@ -1,4 +1,4 @@
-﻿## 1 fastapi + function_scheduling_distributed_framework 的 demo
+﻿## 1 fastapi + funboost 的 demo
 
 
 ## 2 部署
