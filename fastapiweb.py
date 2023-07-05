@@ -6,6 +6,9 @@ import nb_log
 from funboost import AsyncResult, HasNotAsyncResult
 
 logger = nb_log.get_logger('fastapi_demo')
+nb_log.get_logger('fastapi')
+nb_log.get_logger('uvicorn')
+nb_log.get_logger(None)
 
 app = FastAPI()
 
@@ -61,4 +64,4 @@ def sub_api(x: int, y: int):
 
 
 if __name__ == '__main__':
-    uvicorn.run(app="fastapiweb:app", host="127.0.0.1", port=8080, reload=True, debug=True)
+    uvicorn.run(app="fastapiweb:app", host="127.0.0.1", port=8080, reload=True, )
